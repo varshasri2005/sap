@@ -1,0 +1,180 @@
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* SAP Professional Corporate Palette */
+  --sap-blue: #0a6ed1;
+  --sap-blue-hover: #0854a0;
+  --sap-dark-blue: #001e3d;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  
+  /* Backgrounds & Dividers */
+  --bg-subtle: #f8fafc;
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --bg-gradient: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  --hero-mesh: radial-gradient(at 0% 0%, rgba(219, 234, 254, 0.4) 0px, transparent 60%), 
+                radial-gradient(at 100% 100%, rgba(238, 242, 255, 0.4) 0px, transparent 60%);
+                
+  /* Satin Glassmorphism System */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-shadow: 0 4px 20px 0 rgba(15, 23, 42, 0.02), 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  
+  /* Font Families & Scales */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Transitions */
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.15s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keyboard Navigation Accessibility */
+:focus-visible {
+  outline: 2px solid var(--sap-blue);
+  outline-offset: 4px;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-subtle);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 110, 209, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(10, 110, 209, 0.5);
+}
+
+/* Glassmorphism Class utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; filter: blur(35px); }
+  50% { opacity: 0.6; filter: blur(50px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 7s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hover effects */
+.btn-primary {
+  background: var(--sap-blue);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 4px rgba(10, 110, 209, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--sap-blue-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(10, 110, 209, 0.25);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--sap-blue);
+  border: 1px solid var(--sap-blue);
+  padding: 9px 23px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover {
+  background: rgba(10, 110, 209, 0.04);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
